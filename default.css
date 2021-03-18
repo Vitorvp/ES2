@@ -45,18 +45,18 @@
           border-radius: 20px;
 }
 .cabecalho_artigo {
-           margin:0px auto 0px auto;
-           width:250px;
-           height:50px;
-          position: relative;
-          background:#c0c0c0;
-          margin:10px;
-          border-radius: 50px;      
+          margin:0px auto 0px auto;
+          width:200px;
+          height:50px;
+          background:#ffffff;
+          border: 3px solid #000000;
+          border-radius: 50px;
+          margin: 10px;      
 }
 .artigo {
-           margin:0px auto 0px auto;
-           width:590px;
-           height:590px;
+          margin:0px auto 0px auto;
+          width:590px;
+          height:590px;
           float:left;
           background:#E7BE83;
           margin:5px;
@@ -96,7 +96,25 @@
 }
 
   .circle img {
-    position: absolute;
+    position:relative;
     bottom: 0;
-    width: 100%;
+    width: 80%;
+    margin-top: 5px;
+    margin-left: 4px;
+}
+
+  .fundo{
+  position: absolute;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: #FFFFFF;
+  border: 3px solid #000000;
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+  .ctnFlex{
+    display: flex;
+    justify-content: space-between;
 }
