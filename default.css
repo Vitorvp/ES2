@@ -120,12 +120,3 @@
     display: flex;
     justify-content: space-between;
 }
-  .vs{
-    position: absolute;
-    width: 139px;
-    height: 51px;
-    left: 795px;
-    top: 253px;
-
-    background: url(vs.png);
-  }
