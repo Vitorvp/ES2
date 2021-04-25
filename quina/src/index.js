@@ -17,14 +17,22 @@ class Tabuleiro extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quadrados: Array(38).fill(null),
+            quadrados: Array(19**2).fill(null),
             p1IsNext: true,
         };
     }
 
     colocarPedra(i) {
         const quadrados = this.state.quadrados.slice();
-        quadrados[i] = this.state.p1IsNext ? '🟢' : '🔵'
+        const centro = parseInt(quadrados.length/2)
+        if (quadrados[i]) {
+            return;
+        }
+        if (!quadrados[centro]) {
+            quadrados[centro] = this.state.p1IsNext ? '🟢' : '🔵'
+        } else {
+            quadrados[i] = this.state.p1IsNext ? '🟢' : '🔵'
+        }
         this.setState({
             quadrados: quadrados,
             p1IsNext: !this.state.p1IsNext,
