@@ -10,13 +10,20 @@
     position: relative;
   }
 
+  #limit {
+    margin: 0px auto 0px auto;
+    width: 892px;
+    height: 647px;
+    margin-top: 10px;
+}
+
   .tabuleiro:after {
       clear: both;
       display: table;
   }
 
   .position-logo {
-    height: 18vh;
+    height: 15vh;
     pointer-events: none;
   }
 
@@ -46,7 +53,7 @@
     border-radius: 50%;
     background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 3.47%, #FF0000 63.37%), #E84848;
     border: 0.5px solid #841313;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
     margin-left: auto;
     margin-right: auto;    
   }
@@ -57,7 +64,7 @@
     border-radius: 50%;
     background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 4.34%, #F5D840 64.67%), #E0C018;
     border: 0.5px solid #6F611C;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
     margin-left: auto;
     margin-right: auto; 
   }
@@ -76,6 +83,8 @@
     float:left;
     background:#0f0f11;
     border-radius: 20px;
+
+    justify-content: center;
   }
 
   #fundo_area_jogo {
@@ -88,7 +97,7 @@
     border-radius: 20px;
   }
 
-  .cabecalho_artigo {
+  .cabecalho_area_jogo {
       margin:0px auto 0px auto;
       width:200px;
       height:50px;
@@ -141,3 +150,48 @@
     border: 3px solid #000000;
     box-sizing: border-box;
 }
+
+  #form input {
+    height: 35px;
+    width: 200px;
+    border-width: 1px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 20px;   
+  }
+
+  #check input {
+    border-width: 1px;
+    border-radius: 10px;
+    font-size: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+
+  .menu_title {
+    font-family: Roboto;
+    font-size: 25px;
+    color: #FFFFFF;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .menu_subtitle {
+    font-family: Roboto;
+    font-size: 15px;
+    color: #FFFFFF;
+  }
+
+  #start button {
+    width: 179px;
+    height: 49px;
+    background: linear-gradient(180deg, #5CACA7 0%, rgba(159, 159, 159, 0.0520833) 99.99%, rgba(35, 154, 147, 0) 100%), #C4C4C4;
+    mix-blend-mode: normal;
+    border-radius: 50px;
+    margin-top: 30px;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000000;
+  }

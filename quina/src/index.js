@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import titulo from './img/titulo.png'
 import vs from './img/vs.png'
@@ -85,6 +85,10 @@ class Tabuleiro extends React.Component {
     }
 }
 
+function GameStart() {
+    alert("Inicio do Game!")
+}
+
 class Jogo extends React.Component {
     render() {
         return(
@@ -97,37 +101,81 @@ class Jogo extends React.Component {
     }
 }
 
+class Menu extends React.Component{
+    render() {
+        return(
+            <nav id="menu">
+                <div className="menu_title">Nome</div>
+                <div id="form">
+                    <input id="player_name" type="name" placeholder="Seu primeiro nome"
+                    onChangeText={(texto) => this.setState({texto : texto})}/>
+                </div>
+
+                <div className="menu_title">Avatar</div>
+                    <div id="check" className="menu_subtitle">
+                            <input id="marculino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Masculino&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input id="feminino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Feminino
+                    </div>
+
+                <div className="menu_title">Cor</div>
+                    <div id="check" style={{display: "-webkit-box", marginTop: 10}}>
+                        <input type="checkbox" style={{marginTop: "auto"}}/>
+                        <div className="pedra_vermelha" style={{marginLeft: 15}}></div>
+                    </div>
+                    <div id="check" style={{display: "-webkit-box", marginTop: 10}}>
+                        <input type="checkbox" style={{marginTop: "auto"}}/>
+                        <div className="pedra_amarela" style={{marginLeft: 15}}></div>
+                    </div>
+
+                <div className="menu_title">Início</div>
+                    <div id="check" className="menu_subtitle">
+                            <input id="marculino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Player
+                    </div>
+                    <div id="check" className="menu_subtitle">
+                            <input id="feminino" type="checkbox"/> &nbsp;&nbsp;&nbsp;PC
+                    </div>
+
+                <div id="start" style={{textAlign: "center"}}>
+                    <button type="submit" onClick={GameStart}>Jogar</button>
+                </div>
+            </nav>
+        );
+    }
+}
+
 class Interface extends React.Component {
     render() {
         return(
             <div className="background_effect">
                 <img src={titulo} className="position-logo" alt="titulo" />
-                <div id="corpo">
-                    <nav id="menu"></nav>
-                    <section id="fundo_area_jogo">
-                        <article className="area_jogo">
-                                <div className="ctnFlex">
-                                    <div className="cabecalho_artigo" style={{marginLeft: 30}}>
-                                        <div className="fundo_avatar" style={{marginTop: -5, marginLeft: -5}}>
-                                            <div className="circle" style={{float: "left"}}>
-                                                <img src={avatar_f} alt="avatar_f"/>
+                <div id="limit"> 
+                    <div id="corpo">
+                        <Menu />
+                        <section id="fundo_area_jogo">
+                            <article className="area_jogo">
+                                    <div className="ctnFlex">
+                                        <div className="cabecalho_area_jogo" style={{marginLeft: 30}}>
+                                            <div className="fundo_avatar" style={{marginTop: -5, marginLeft: -5}}>
+                                                <div className="circle" style={{float: "left"}}>
+                                                    <img src={avatar_f} alt="avatar_f"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src={vs} alt="vs" style={{width: '8%', height: '8%', marginTop: "auto"}}/>
+                                        <div className="cabecalho_area_jogo" style={{marginRight: 30}}>
+                                            <div className="fundo_avatar" style={{float: "right", marginTop: -5, marginRight: -5}}>
+                                                <div className="circle" style={{float: "right"}}>
+                                                    <img src={avatar_pc} alt="avatar_pc"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <img src={vs} alt="vs" style={{width: '8%', height: '8%', marginTop: "auto"}}/>
-                                    <div className="cabecalho_artigo" style={{marginRight: 30}}>
-                                        <div className="fundo_avatar" style={{float: "right", marginTop: -5, marginRight: -5}}>
-                                            <div className="circle" style={{float: "right"}}>
-                                                <img src={avatar_pc} alt="avatar_pc"/>
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <Jogo />
                                     </div>
-                                </div>
-                                <div>
-                                    <Jogo />
-                                </div>
-                        </article>
-                    </section>
+                            </article>
+                        </section>
+                    </div>
                 </div>
             </div>
         );
