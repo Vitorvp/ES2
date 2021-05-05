@@ -1,0 +1,25 @@
+  
+.tabuleiro:after {
+    clear: both;
+    display: table;
+}
+
+  .quadrado {
+    background: rgba(218, 198, 111, 0.842);
+    border: 1px solid rgb(187, 110, 9);
+    float: left;
+    font-size: 24px;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+  }
+
+  .jogo {
+    display: flex;
+    flex-direction: row;
+  }
+  
