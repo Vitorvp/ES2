@@ -28,8 +28,8 @@
   }
 
   .quadrado {
-    background: rgba(231, 190, 131, 1);
-    border: 1px solid rgb(0,0,0);
+    background-image: url('./img/piece_tab.png');
+    border: 0px solid rgb(0,0,0);
     float: left;
     font-size: 24px;
     line-height: 27px;
@@ -48,23 +48,23 @@
   }
 
   .pedra_vermelha{
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 3.47%, #FF0000 63.37%), #E84848;
-    border: 0.5px solid #841313;
-    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
+    border: 1px solid #541B1B;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-left: auto;
     margin-right: auto;    
   }
 
   .pedra_amarela{
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 4.34%, #F5D840 64.67%), #E0C018;
-    border: 0.5px solid #6F611C;
-    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
+    border: 1px solid #6F611C;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-left: auto;
     margin-right: auto; 
   }
@@ -83,7 +83,6 @@
     float:left;
     background:#0f0f11;
     border-radius: 20px;
-
     justify-content: center;
   }
 
@@ -189,9 +188,24 @@
     background: linear-gradient(180deg, #5CACA7 0%, rgba(159, 159, 159, 0.0520833) 99.99%, rgba(35, 154, 147, 0) 100%), #C4C4C4;
     mix-blend-mode: normal;
     border-radius: 50px;
-    margin-top: 30px;
+    margin-top: 35px;
     font-family: Roboto;
     font-weight: bold;
     font-size: 30px;
     color: #000000;
+  }
+
+  .restart{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 30px;
+    color: #ffffff;
+  }
+
+  .resultado {
+    font-family: Roboto;
+    font-size: 15px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    margin-top: 30px;
   }

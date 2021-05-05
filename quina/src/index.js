@@ -4,6 +4,7 @@ import titulo from './img/titulo.png'
 import vs from './img/vs.png'
 import avatar_f from './img/avatar-feminino.png'
 import avatar_pc from './img/avatar_pc.png'
+import restart from './img/restart.png'
 import './index.css'
 
 function Quadrado(props) {
@@ -89,6 +90,10 @@ function GameStart() {
     alert("Inicio do Game!")
 }
 
+function GameRestart() {
+    alert("Reiniciar o Game!")
+}
+
 class Jogo extends React.Component {
     render() {
         return(
@@ -107,8 +112,7 @@ class Menu extends React.Component{
             <nav id="menu">
                 <div className="menu_title">Nome</div>
                 <div id="form">
-                    <input id="player_name" type="name" placeholder="Seu primeiro nome"
-                    onChangeText={(texto) => this.setState({texto : texto})}/>
+                    <input id="player_name" type="name" style={{textAlign: "center"}} placeholder="Insira seu nickname"/>
                 </div>
 
                 <div className="menu_title">Avatar</div>
@@ -119,24 +123,34 @@ class Menu extends React.Component{
 
                 <div className="menu_title">Cor</div>
                     <div id="check" style={{display: "-webkit-box", marginTop: 10}}>
-                        <input type="checkbox" style={{marginTop: "auto"}}/>
+                        <input type="checkbox" style={{marginTop: "auto", verticalAlign: "middle"}}/>
                         <div className="pedra_vermelha" style={{marginLeft: 15}}></div>
                     </div>
                     <div id="check" style={{display: "-webkit-box", marginTop: 10}}>
-                        <input type="checkbox" style={{marginTop: "auto"}}/>
+                        <input type="checkbox" style={{marginTop: "auto", verticalAlign: "middle"}}/>
                         <div className="pedra_amarela" style={{marginLeft: 15}}></div>
                     </div>
 
                 <div className="menu_title">Início</div>
                     <div id="check" className="menu_subtitle">
-                            <input id="marculino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Player
+                        <input id="marculino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Player
                     </div>
                     <div id="check" className="menu_subtitle">
-                            <input id="feminino" type="checkbox"/> &nbsp;&nbsp;&nbsp;PC
+                        <input id="feminino" type="checkbox"/> &nbsp;&nbsp;&nbsp;PC
                     </div>
 
                 <div id="start" style={{textAlign: "center"}}>
                     <button type="submit" onClick={GameStart}>Jogar</button>
+                </div>
+
+                <div style={{display: "flex", placeContent: "center", marginTop: 15}}>
+                    <img src={restart} alt="restart" style={{width: '13%', height: '13%'}} onClick={GameRestart}/>
+                    <div className="restart">&nbsp;&nbsp;Restart</div>
+                </div>
+
+                <div className="resultado">
+                    <div>Vitórias:</div>
+                    <div>Derrotas:</div>
                 </div>
             </nav>
         );
