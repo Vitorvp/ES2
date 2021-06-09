@@ -138,13 +138,20 @@ class Tabuleiro extends React.Component {
         }
         if (!quadrados[centro]) {
             quadrados[centro] = this.state.p1IsNext ? pedra_v() : pedra_a()
+            //GameStart();
         } else {
             quadrados[i] = this.state.p1IsNext ? pedra_v() : pedra_a()
+           // alert((this.state.quadrados[i-1] === pedra_v()) ? 1 : 2);
+           //alert(this.state.quadrados[i-1].props.className)
+           //verificarPedras(quadrados[i-1]);
+            verificarPedras(quadrados, i);
+            //console.log(quadrados[i]);
         }
         this.setState({
             quadrados: quadrados,
             p1IsNext: !this.state.p1IsNext,
         });
+
     }
 
     renderTabuleiro(n) {
@@ -398,3 +405,233 @@ ReactDOM.render(
     <Interface />,
     document.getElementById('root')
 );
+
+var parV = 0;
+var parA = 0;
+
+function verificarPedras(pedras, posicao) {
+    const limiteEsq = Array(19)
+    const limiteDir = Array(19)
+    var linha;
+    var contadorDC = 0;
+    var contadorDD = 0;
+    var contadorH = 0;
+    var contadorV = 0;
+    var contadorDC2 = 0;
+    var contadorDD2 = 0;
+    var contadorH2 = 0;
+    var contadorV2 = 0;
+    const vertical = Array(9)
+    const horizontal = Array(9)
+    const diagonalD = Array(9)
+    const diagonalC = Array(9)
+
+    //Criando os valaores dos limites laterais (borda do tabuleiro)
+    for (let i = 0; i < 19; i++) {
+        let nomePedra = pedras[posicao].props.className
+        limiteEsq[i] = i*19;
+        limiteDir[i] = (i*19) + 18;
+
+        //Checando a linha no tabuleiro
+        if (posicao >= limiteEsq[i] && posicao <= limiteDir[i]) {
+            linha = i;
+            
+            let DiagEsq = (posicao - limiteEsq[i]) > 3 ? 4 : (posicao - limiteEsq[i])
+            let DiagDir = (limiteDir[i] - posicao) > 3 ? 4 : (limiteDir[i] - posicao)
+            let vert = (i > 3 && i < 15) ? 4 : (18-i)
+            let horizE = (DiagEsq <= 8 &&  DiagEsq > 3) ? 4 : DiagEsq
+            let horizD = (DiagDir >= 8 &&  DiagDir < 15) ? 4 : DiagDir
+            let horiz = horizE > 3 ? horizE : horizD
+
+            //Armazena a sequencia de pedras
+            for (let k = 0; k < 5; k++) {
+                //diagonal crescente
+                let pedraAtualE = pedras[posicao - ((DiagDir - k)*18)]
+                let pedraAtualD = pedras[posicao + k*18]
+
+                if (pedraAtualE != null) {
+                    diagonalC[k] = pedraAtualE.props.className
+                } 
+                if (pedraAtualD != null) {
+                    diagonalC[DiagDir+k] = pedraAtualD.props.className
+                } 
+
+                //diagonal decrescente
+                let pedraAtualE2 = pedras[posicao - ((DiagEsq - k)*20)]
+                let pedraAtualD2 = pedras[posicao + k*20]
+
+                if (pedraAtualE2 != null) {
+                    diagonalD[k] = pedraAtualE2.props.className
+                } 
+                if (pedraAtualD2 != null) {
+                    diagonalD[DiagEsq+k] = pedraAtualD2.props.className
+                }
+
+                //vertical
+                let pedraAtualEV = pedras[posicao - ((vert - k)*19)]
+                let pedraAtualDV = pedras[posicao + k*19]
+
+                if (pedraAtualEV != null) {
+                    vertical[k] = pedraAtualEV.props.className
+                } 
+                if (pedraAtualDV != null) {
+                    vertical[vert+k] = pedraAtualDV.props.className
+                } 
+
+                //horizontal
+                let pedraAtualEH = pedras[posicao - (horiz - k)]
+                let pedraAtualDH = pedras[posicao + k]
+
+                if (pedraAtualEH != null) {
+                    horizontal[k] = pedraAtualEH.props.className
+                } 
+                if (pedraAtualDH != null) {
+                    horizontal[horiz+k] = pedraAtualDH.props.className
+                }  
+            }
+            
+
+            //Verifica a sequencias de pedras
+            for (let k = 0; k < 9; k++) {
+                //Verifica a diagonal crescente
+                if (diagonalC[k] != null) {
+                    if (diagonalC[k] === nomePedra) {
+                        if (contadorDC2 === 2) {
+                            
+                            if (nomePedra === "pedra_vermelha") {
+                                parV += 1
+                            } else {
+                                parA += 1
+                            }
+
+                            alert("Par - " + parV + parA)
+                            
+                        }
+
+                        contadorDC += 1;
+                        contadorDC2 = 0
+                        console.log("DC: " + contadorDC)  
+
+                    } else if (contadorDC >= 1){
+                        contadorDC2 += 1                        
+                    } else {
+                        contadorDC = 0;
+                        contadorDC2 = 0;
+                    } 
+
+
+                    if (contadorDC === 5) {
+                        alert("Vitoria DC" + contadorDC); 
+                    } else if (parV === 5 || parA === 5) {
+                        alert("Vitoria Par - " + parV + parA); 
+                    }
+
+                } else {
+                    contadorDC = 0;
+                    contadorDC2 = 0;
+                } 
+
+
+                //Verifica a diagonal decrescente
+                if (diagonalD[k] != null) {
+                    if (diagonalD[k] === nomePedra) {
+                        if (contadorDD2 === 2) {  
+                            if (nomePedra === "pedra_vermelha") {
+                                parV += 1
+                            } else {
+                                parA += 1
+                            }
+
+                            alert("Par - " + parV + parA)   
+                        }
+
+                        contadorDD += 1;
+                        contadorDD2 = 0;
+                        console.log("DD: " +contadorDD)  
+                    }  else if (contadorDD >= 1){
+                        contadorDD2 += 1                        
+                    } else {
+                        contadorDD = 0;
+                        contadorDD2 = 0;
+                    }
+
+                    if (contadorDD === 5) {
+                        alert("Vitoria DD" + contadorDD); 
+                    } else if (parV === 5 || parA === 5) {
+                        alert("Vitoria Par - " + parV + parA); 
+                    }
+                } else {
+                    contadorDD = 0;
+                    contadorDD2 = 0;
+                } 
+
+
+                //Verifica horizontal
+                if (horizontal[k] != null) {
+                    if (horizontal[k] === nomePedra) {
+                        if (contadorH2 === 2) {  
+                            if (nomePedra === "pedra_vermelha") {
+                                parV += 1
+                            } else {
+                                parA += 1
+                            }
+
+                            alert("Par - " + parV + parA)   
+                        }
+
+                        contadorH += 1;
+                        contadorH2 = 0;
+                        console.log("H: " +contadorH)  
+                    } else if (contadorH >= 1){
+                        contadorH2 += 1                        
+                    } else {
+                        contadorH = 0;
+                        contadorH2 = 0;
+                    }
+
+                    if (contadorH === 5) {
+                        alert("Vitoria H" + contadorH); 
+                    } else if (parV === 5 || parA === 5) {
+                        alert("Vitoria Par - " + parV + parA); 
+                    }
+                } else {
+                    contadorH = 0;
+                    contadorH2 = 0;
+                }
+
+
+                //Verifica vertical
+                if (vertical[k] != null) {
+                    if (vertical[k] === nomePedra) {
+                        if (contadorV2 === 2) {  
+                            if (nomePedra === "pedra_vermelha") {
+                                parV += 1
+                            } else {
+                                parA += 1
+                            }
+
+                            alert("Par - " + parV + parA)   
+                        }
+                        contadorV += 1;
+                        contadorV2 = 0;
+                        console.log("V: " +contadorV)  
+                    } else if (contadorV >= 1){
+                        contadorV2 += 1                        
+                    } else {
+                        contadorV = 0;
+                        contadorV2 = 0;
+                    }
+
+                    if (contadorV === 5) {
+                        alert("Vitoria V" + contadorV); 
+                    } else if (parV === 5 || parA === 5) {
+                        alert("Vitoria Par - " + parV + parA); 
+                    }
+                } else {
+                    contadorV = 0;
+                    contadorV2 = 0;
+                }
+            }
+        }
+    }
+}
