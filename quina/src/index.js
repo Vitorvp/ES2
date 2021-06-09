@@ -7,10 +7,98 @@ import avatar_pc from './img/avatar_pc.png'
 import restart from './img/restart.png'
 import './index.css'
 
-function Quadrado(props) {
+function Quadrado_centro(props) {
     return(
         <button
-            className="quadrado"
+            className="quadrado_centro"
+            onClick={props.onClick}
+        >
+            {props.value}
+        </button>
+    );
+}
+
+function Quadrado_sup_esq(props) {
+    return(
+        <button
+            className="quadrado_sup_esq"
+            onClick={props.onClick}
+        >
+            {props.value}
+        </button>
+    );
+}
+
+function Quadrado_sup_dir(props) {
+    return(
+        <button
+            className="quadrado_sup_dir"
+            onClick={props.onClick}
+        >
+            {props.value}
+        </button>
+    );
+}
+
+function Quadrado_inf_esq(props) {
+    return(
+        <button
+            className="quadrado_inf_esq"
+            onClick={props.onClick}
+        >
+            {props.value}
+        </button>
+    );
+}
+
+function Quadrado_inf_dir(props) {
+    return(
+        <button
+            className="quadrado_inf_dir"
+            onClick={props.onClick}
+        >
+            {props.value}
+        </button>
+    );
+}
+
+function Quadrado_lateral_esq(props) {
+    return(
+        <button
+            className="quadrado_lateral_esq"
+            onClick={props.onClick}
+        >
+            {props.value}
+        </button>
+    );
+}
+
+function Quadrado_lateral_dir(props) {
+    return(
+        <button
+            className="quadrado_lateral_dir"
+            onClick={props.onClick}
+        >
+            {props.value}
+        </button>
+    );
+}
+
+function Quadrado_sup(props) {
+    return(
+        <button
+            className="quadrado_sup"
+            onClick={props.onClick}
+        >
+            {props.value}
+        </button>
+    );
+}
+
+function Quadrado_inf(props) {
+    return(
+        <button
+            className="quadrado_inf"
             onClick={props.onClick}
         >
             {props.value}
@@ -62,11 +150,61 @@ class Tabuleiro extends React.Component {
         const tabuleiro = []
         for (let i = 0; i < n; i++){
             for (let j = 0; j < n; j++){
-                tabuleiro.push(<Quadrado
-                                    value={this.state.quadrados[(n*i)+j]}
-                                    onClick={() => this.colocarPedra((n*i)+j)}
-                                />);
-             }
+                if (j==0 & i==0){
+                    tabuleiro.push(<Quadrado_sup_esq
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+                else if (j==18 & i==0){
+                    tabuleiro.push(<Quadrado_sup_dir
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+                else if (j==0 & i==18){
+                    tabuleiro.push(<Quadrado_inf_esq
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+                else if (j==18 & i==18){
+                    tabuleiro.push(<Quadrado_inf_dir
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+                else if (i==0){
+                    tabuleiro.push(<Quadrado_sup
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+                else if (i==18){
+                    tabuleiro.push(<Quadrado_inf
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+                else if (j==0){
+                    tabuleiro.push(<Quadrado_lateral_esq
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+                else if (j==18){
+                    tabuleiro.push(<Quadrado_lateral_dir
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+                else{
+                    tabuleiro.push(<Quadrado_centro
+                        value={this.state.quadrados[(n*i)+j]}
+                        onClick={() => this.colocarPedra((n*i)+j)}
+                    />);
+                }
+            }   
              tabuleiro.push(<div> </div>);
         }
 
@@ -110,18 +248,37 @@ class Menu extends React.Component{
     render() {
         return(
             <nav id="menu">
-                <div className="menu_title">Nome</div>
+                <div className="menu_title">Nomes</div>
                 <div id="form">
-                    <input id="player_name" type="name" style={{textAlign: "center"}} placeholder="Insira seu nickname"/>
+                    <div className="menu_subtitle" style={{marginLeft: 30}}>Player 1:
+                        <input id="player_name" type="name" style={{textAlign: "center"}} placeholder="Insira seu nickname"/>
+                    </div>
+                    <div className="menu_subtitle" style={{marginLeft: 30}}>Player 2:
+                        <input id="player_name" type="name" style={{textAlign: "center"}} placeholder="Insira seu nickname"/>
+                    </div>
                 </div>
 
                 <div className="menu_title">Avatar</div>
                     <div id="check" className="menu_subtitle">
-                            <input id="marculino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Masculino&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input id="feminino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Feminino
+                            <div style={{marginLeft: 30}}>Player 1:
+                            <input id="marculino" type="checkbox"/> &nbsp;&nbsp;M&nbsp;&nbsp;
+                            <input id="feminino" type="checkbox"/> &nbsp;&nbsp;F
+                            </div>
+                    </div>
+                    <div id="check" className="menu_subtitle">
+                            <div style={{marginLeft: 30}}>Player 2:
+                            <input id="marculino" type="checkbox"/> &nbsp;&nbsp;M&nbsp;&nbsp;
+                            <input id="feminino" type="checkbox"/> &nbsp;&nbsp;F
+                            </div>
                     </div>
 
-                <div className="menu_title">Cor</div>
+                <div className="menu_title">Início</div>
+                    <div id="check" className="menu_subtitle">
+                        <input id="marculino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Player 1&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input id="feminino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Player 2
+                    </div>
+
+                <div className="menu_title">Cor de início</div>
                     <div id="check" style={{display: "-webkit-box", marginTop: 10}}>
                         <input type="checkbox" style={{marginTop: "auto", verticalAlign: "middle"}}/>
                         <div className="pedra_vermelha" style={{marginLeft: 15}}></div>
@@ -131,26 +288,18 @@ class Menu extends React.Component{
                         <div className="pedra_amarela" style={{marginLeft: 15}}></div>
                     </div>
 
-                <div className="menu_title">Início</div>
-                    <div id="check" className="menu_subtitle">
-                        <input id="marculino" type="checkbox"/> &nbsp;&nbsp;&nbsp;Player
-                    </div>
-                    <div id="check" className="menu_subtitle">
-                        <input id="feminino" type="checkbox"/> &nbsp;&nbsp;&nbsp;PC
-                    </div>
-
                 <div id="start" style={{textAlign: "center"}}>
                     <button type="submit" onClick={GameStart}>Jogar</button>
                 </div>
 
-                <div style={{display: "flex", placeContent: "center", marginTop: 15}}>
-                    <img src={restart} alt="restart" style={{width: '13%', height: '13%'}} onClick={GameRestart}/>
+                <div style={{display: "flex", placeContent: "center", alignItems: "center", marginTop: 15}}>
+                    <img src={restart} alt="restart" style={{width: '12%', height: '12%'}} onClick={GameRestart}/>
                     <div className="restart">&nbsp;&nbsp;Restart</div>
                 </div>
 
                 <div className="resultado">
-                    <div>Vitórias:</div>
-                    <div>Derrotas:</div>
+                    <div>Vitórias P1:</div>
+                    <div>Vitórias P2:</div>
                 </div>
             </nav>
         );
