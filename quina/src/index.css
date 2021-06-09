@@ -180,6 +180,28 @@
     margin-left: auto;
     margin-right: auto; 
   }
+  
+  .pedra_vermelha_capturada{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 3.47%, #FF0000 63.37%), #E84848;
+    border: 1px solid #541B1B;
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+    margin-right: auto;    
+  }
+
+  .pedra_amarela_capturada{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 4.34%, #F5D840 64.67%), #E0C018;
+    border: 1px solid #6F611C;
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+    margin-right: auto; 
+  }
 
   #corpo {
     margin: 1px;
@@ -231,6 +253,12 @@
   .ctnFlex{
     display: flex;
     justify-content: space-between;
+  }
+
+  .flex_capturada{
+    display: flex;
+    margin-left: 5;
+    margin-right: 5;
   }
 
   .circle {
