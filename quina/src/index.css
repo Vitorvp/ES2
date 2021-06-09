@@ -27,8 +27,120 @@
     pointer-events: none;
   }
 
-  .quadrado {
+  .quadrado_centro {
     background-image: url('./img/piece_tab.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_lateral_dir {
+    background-image: url('./img/piece_tab_lat_dir.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_lateral_esq {
+    background-image: url('./img/piece_tab_lat_esq.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_sup {
+    background-image: url('./img/piece_tab_sup.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }  
+
+  .quadrado_inf {
+    background-image: url('./img/piece_tab_inf.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_sup_esq {
+    background-image: url('./img/piece_tab_sup_esq.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_sup_dir {
+    background-image: url('./img/piece_tab_sup_dir.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_inf_esq {
+    background-image: url('./img/piece_tab_inf_esq.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_inf_dir {
+    background-image: url('./img/piece_tab_inf_dir.png');
     border: 0px solid rgb(0,0,0);
     float: left;
     font-size: 24px;
@@ -65,6 +177,28 @@
     background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 4.34%, #F5D840 64.67%), #E0C018;
     border: 1px solid #6F611C;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  
+  .pedra_vermelha_capturada{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 3.47%, #FF0000 63.37%), #E84848;
+    border: 1px solid #541B1B;
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+    margin-right: auto;    
+  }
+
+  .pedra_amarela_capturada{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 4.34%, #F5D840 64.67%), #E0C018;
+    border: 1px solid #6F611C;
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
     margin-left: auto;
     margin-right: auto; 
   }
@@ -121,6 +255,12 @@
     justify-content: space-between;
   }
 
+  .flex_capturada{
+    display: flex;
+    margin-left: 5;
+    margin-right: 5;
+  }
+
   .circle {
     background-color: #aaa;
     border-radius: 50%;
@@ -151,13 +291,13 @@
 }
 
   #form input {
-    height: 35px;
-    width: 200px;
+    height: 25px;
+    width: 150px;
     border-width: 1px;
     border-radius: 10px;
     margin-top: 10px;
     margin-left: 20px;
-    font-size: 20px;   
+    font-size: 15px;
   }
 
   #check input {
@@ -165,7 +305,7 @@
     border-radius: 10px;
     font-size: 40px;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 30px;
   }
 
   .menu_title {
@@ -184,11 +324,11 @@
 
   #start button {
     width: 179px;
-    height: 49px;
-    background: linear-gradient(180deg, #5CACA7 0%, rgba(159, 159, 159, 0.0520833) 99.99%, rgba(35, 154, 147, 0) 100%), #C4C4C4;
+    height: 45px;
+    background: #C4C4C4;
     mix-blend-mode: normal;
     border-radius: 50px;
-    margin-top: 35px;
+    margin-top: 25px;
     font-family: Roboto;
     font-weight: bold;
     font-size: 30px;
@@ -198,7 +338,7 @@
   .restart{
     font-family: Roboto;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 25px;
     color: #ffffff;
   }
 
@@ -207,5 +347,5 @@
     font-size: 15px;
     color: #FFFFFF;
     margin-left: 20px;
-    margin-top: 30px;
+    margin-top: 25px;
   }
