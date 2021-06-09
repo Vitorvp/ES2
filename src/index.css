@@ -1,0 +1,351 @@
+* { margin : 0; padding : 0; }
+
+  .background_effect {
+    background: linear-gradient(180deg, #B5B5B5 16.67%, rgba(0, 0, 0, 0.58) 71.87%), rgba(1, 1, 1, 0.8);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  #limit {
+    margin: 0px auto 0px auto;
+    width: 892px;
+    height: 647px;
+    margin-top: 10px;
+}
+
+  .tabuleiro:after {
+      clear: both;
+      display: table;
+  }
+
+  .position-logo {
+    height: 15vh;
+    pointer-events: none;
+  }
+
+  .quadrado_centro {
+    background-image: url('./img/piece_tab.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_lateral_dir {
+    background-image: url('./img/piece_tab_lat_dir.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_lateral_esq {
+    background-image: url('./img/piece_tab_lat_esq.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_sup {
+    background-image: url('./img/piece_tab_sup.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }  
+
+  .quadrado_inf {
+    background-image: url('./img/piece_tab_inf.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_sup_esq {
+    background-image: url('./img/piece_tab_sup_esq.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_sup_dir {
+    background-image: url('./img/piece_tab_sup_dir.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_inf_esq {
+    background-image: url('./img/piece_tab_inf_esq.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .quadrado_inf_dir {
+    background-image: url('./img/piece_tab_inf_dir.png');
+    border: 0px solid rgb(0,0,0);
+    float: left;
+    font-size: 24px;
+    line-height: 27px;
+    height: 27px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 27px;
+  }
+
+  .jogo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .pedra_vermelha{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 3.47%, #FF0000 63.37%), #E84848;
+    border: 1px solid #541B1B;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+    margin-right: auto;    
+  }
+
+  .pedra_amarela{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 4.34%, #F5D840 64.67%), #E0C018;
+    border: 1px solid #6F611C;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  
+  .pedra_vermelha_capturada{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 3.47%, #FF0000 63.37%), #E84848;
+    border: 1px solid #541B1B;
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+    margin-right: auto;    
+  }
+
+  .pedra_amarela_capturada{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(206.57deg, rgba(255, 255, 255, 0.58) 4.34%, #F5D840 64.67%), #E0C018;
+    border: 1px solid #6F611C;
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25);
+    margin-left: auto;
+    margin-right: auto; 
+  }
+
+  #corpo {
+    margin: 1px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    min-height: 500px;               
+  }
+
+  #menu {
+    margin:0px auto 0px auto;
+    width:280px;
+    height:600px;
+    float:left;
+    background:#0f0f11;
+    border-radius: 20px;
+    justify-content: center;
+  }
+
+  #fundo_area_jogo {
+    margin:0px auto 0px auto;
+    width:600px;
+    height:600px;
+    float:left;
+    background:#000000;
+    margin-left:10px;
+    border-radius: 20px;
+  }
+
+  .cabecalho_area_jogo {
+      margin:0px auto 0px auto;
+      width:200px;
+      height:50px;
+      background:#ffffff;
+      border: 3px solid #000000;
+      border-radius: 50px;
+      margin-top: 10px;
+  }
+
+  .area_jogo {
+      margin:0px auto 0px auto;
+      width:590px;
+      height:590px;
+      float:left;
+      background:#E7BE83;
+      margin:5px;
+      border-radius: 20px;
+  }
+
+  .ctnFlex{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .flex_capturada{
+    display: flex;
+    margin-left: 5;
+    margin-right: 5;
+  }
+
+  .circle {
+    background-color: #aaa;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+  .circle img {
+    position: relative;
+    bottom: 0;
+    width: 80%;
+    margin-top: 5px;
+    margin-left: 4px;
+  }
+
+  .fundo_avatar {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border: 3px solid #000000;
+    box-sizing: border-box;
+}
+
+  #form input {
+    height: 25px;
+    width: 150px;
+    border-width: 1px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  #check input {
+    border-width: 1px;
+    border-radius: 10px;
+    font-size: 40px;
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+
+  .menu_title {
+    font-family: Roboto;
+    font-size: 25px;
+    color: #FFFFFF;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .menu_subtitle {
+    font-family: Roboto;
+    font-size: 15px;
+    color: #FFFFFF;
+  }
+
+  #start button {
+    width: 179px;
+    height: 45px;
+    background: #C4C4C4;
+    mix-blend-mode: normal;
+    border-radius: 50px;
+    margin-top: 25px;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 30px;
+    color: #000000;
+  }
+
+  .restart{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 25px;
+    color: #ffffff;
+  }
+
+  .resultado {
+    font-family: Roboto;
+    font-size: 15px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    margin-top: 25px;
+  }
